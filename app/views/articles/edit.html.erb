@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="col-md-12 margin-top-5per padding-top-10 article-block margin-bottom-10">
+      <h1 class="text-center txtcolorw">ブログの編集</h1>
+        <div class="form-group relative", id="image-area">
+          <% if @article.image.attached? %>
+            <%= image_tag @article.image, class: "article-img" %>
+          <%else%>
+            <%= image_tag 'noimage.jpg', class: 'article-img' %>
+            <i class="far fa-images"></i>
+          <%end%>
+        </div>
+      <div class="padding-bottom-15">
+        <%= render 'form', article: @article%>
+      </div>
+    </div>
+</div>

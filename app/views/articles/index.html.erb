@@ -1,0 +1,26 @@
+<div class="container margin-bottom-10">
+  <div class="row">
+
+    <% @articles.each do |article| %>
+        <div class="col-md-3 margin-top-5per article-block", id="article-box">
+          <%= link_to article, class:"txtcolorw" do %>
+          <% if article.image.attached? %>
+            <%= image_tag article.image, class: "article-img" %>
+          <%else%>
+            <%= image_tag 'noimage.jpg', class: 'article-img' %>
+          <%end%>
+          <div>
+            <p class="title"><%= article.title %></p>
+            <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+            <br>
+            投稿者：<%= article.user.nickname %>
+          </div>
+      </div>
+      <% end %>
+    <% end %>
+
+  </div>
+  <div class="row">
+    <%= link_to "新規作成",new_article_path, class:"margin-top-5per btn btn-primary" %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container margin-bottom-10">
+  <div class="col-md-12 margin-top-5per padding-top-10 article-block">
+    <div class="form-group relative">
+      <% if @article.image.attached? %>
+        <%= image_tag @article.image, class: "article-img" %>
+      <%else%>
+        <%= image_tag 'noimage.jpg', class: 'article-img' %>
+      <%end%>
+      
+    </div>
+    <h1 class="show-title txtcolorw"><%= @article.title %></h1>
+    <p class="txtcolorw">投稿者：<%= @article.user.nickname %></p>
+      <div class="padding-bottom-15 txtcolorw", style="padding: 10px;">
+        <%= simple_format @article.body %>
+        <p class="text-right"><%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+      </div>
+      <%= link_to "編集する", edit_article_path, class:"btn btn-primary", style:"margin-bottom:10px; margin-right:10px;" %>
+      <%= link_to "削除する", article_path, method: :delete, data: {confirm: "削除しますか？"} ,class:"btn btn-danger", style:"margin-bottom:10px; margin-right:10px;" %>
+
+    </div>
+</div>
