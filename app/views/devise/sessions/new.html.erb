@@ -1,4 +1,12 @@
-<h2 class="text-center txtcolorw">ログイン</h2>
+<div class="text-center txtcolorw">
+  <h2 class="text-center txtcolorw">ログイン</h2>
+  <%= link_to user_facebook_omniauth_authorize_path, method: :post, style:"text-decoration: none" do %>
+    <i class="fab fa-facebook-square txtcolorw", id="fbicon"></i>
+  <%end%>
+  <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+    <i class="fab fa-google txtcolorw", id="ggleicon"></i>
+  <%end%>
+</div>
 
 <%= form_with model: @user, url: new_user_session_path, method: :post, class:"box", local: true do |f| %>
   <div class="field">

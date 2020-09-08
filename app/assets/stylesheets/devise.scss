@@ -52,3 +52,22 @@
 .box input[type = "submit"]:hover{
   background: #2ecc71;
 }
+
+#fbicon,#ggleicon{
+  font-size: 30px;
+  margin: auto 10px;
+}
+
+#fbicon:hover{
+  transition: color 0.5s;
+  color: #3498db;
+}
+
+#ggleicon:hover{
+  transition: color 0.5s;
+  color: cadetblue;
+}
+
+.oauth-btn{
+  text-decoration: none;
+}
