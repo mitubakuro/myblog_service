@@ -2,6 +2,7 @@
   <div class="form-group margin-bottom-10">
     <%= f.label :image, "画像", class:"txtcolorw" %>
     <%= f.file_field :image, class:"txtcolorw margin-bottom-10 btn-success", id: "image-upload" %>
+    <div id="image-list"></div>
     <br>
     <%= f.label :title, 'タイトル', class:"txtcolorw" %>
     <%=f.text_field :title, class:'form-control' %>
