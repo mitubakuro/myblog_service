@@ -1,7 +1,11 @@
 <div class="text-center txtcolorw">
   <h2>新規登録</h2>
-  <i class="fab fa-facebook-square txtcolorw", id="fbicon"></i>
-  <i class="fab fa-google txtcolorw", id="ggleicon"></i>
+  <%= link_to user_facebook_omniauth_authorize_path, method: :post, style:"text-decoration: none" do %>
+    <i class="fab fa-facebook-square txtcolorw", id="fbicon"></i>
+  <%end%>
+  <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
+    <i class="fab fa-google txtcolorw", id="ggleicon"></i>
+  <%end%>
 </div>
 
 <%= form_with model: @user, url: user_registration_path, method: :post, class: "box", local: true do |f| %>
@@ -33,19 +37,22 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@xxx.com" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード再確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
+  <%if @sns_id.present? %>
+      <%= hidden_field_tag :sns_auth, true %>
+  <% else %>
+    <div class="field">
+      <%= f.label :password, "パスワード" %>
+      <% if @minimum_password_length %>
+      <em class="txtcolorw">(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, "パスワード再確認" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit "新規登録" %>
   </div>
