@@ -1,12 +1,17 @@
-// window.addEventListener("load", upload);
-
-// function upload(){
-//   // 必要な要素を取得
-//   const image = document.getElementById('image-upload');
-//   const imgarea = document.getElementById("image-area");
-//   // imgareaがクリックされたイベントで処理を発火する
-//   imgarea.addEventListener('click', ()=>{
-//     image.click();
-//   })
-// };
-
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+  document.addEventListener('DOMContentLoaded', function(){
+    const imageList = document.getElementById('image-list');
+    // ファイル選択後にイベント発火
+    document.getElementById('image-upload').addEventListener('change', function(e){
+      const file = e.target.files[0];
+      const blob = window.URL.createObjectURL(file);
+      // 画像表示用のdiv要素と、img要素を生成→img要素に画像URLをセット
+      const imageElement = document.createElement('div');
+      const blobImage = document.createElement('img');
+      blobImage.setAttribute('src', blob);
+      // 上記で生成した各要素を入れ子構造にしてブラウザに表示
+      imageElement.appendChild(blobImage);
+      imageList.appendChild(imageElement);
+    });
+  });
+}
