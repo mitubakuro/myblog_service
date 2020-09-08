@@ -11,7 +11,7 @@
     <h1 class="show-title txtcolorw"><%= @article.title %></h1>
     <p class="txtcolorw">投稿者：<%= @article.user.nickname %></p>
       <div class="padding-bottom-15 txtcolorw", style="padding: 10px;">
-        <%= simple_format @article.body %>
+        <%= @article.body %>
         <p class="text-right"><%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
       </div>
       <%= link_to "編集する", edit_article_path, class:"btn btn-primary", style:"margin-bottom:10px; margin-right:10px;" %>

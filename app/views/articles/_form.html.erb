@@ -8,7 +8,7 @@
   </div>
   <div class="form-group">
     <%= f.label :body, '本文', class:"txtcolorw" %>
-    <%=f.text_area :body, rows:7, class:'form-control' %>
+    <%=f.rich_text_area :body, rows:7, class:'form-control' %>
   </div>
   <%=f.submit class: 'btn btn-success' %>
 <% end %>
