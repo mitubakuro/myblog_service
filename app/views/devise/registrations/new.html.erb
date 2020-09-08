@@ -1,4 +1,8 @@
-<h2 class="text-center txtcolorw">新規登録</h2>
+<div class="text-center txtcolorw">
+  <h2>新規登録</h2>
+  <i class="fab fa-facebook-square txtcolorw", id="fbicon"></i>
+  <i class="fab fa-google txtcolorw", id="ggleicon"></i>
+</div>
 
 <%= form_with model: @user, url: user_registration_path, method: :post, class: "box", local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
