@@ -5,9 +5,9 @@
         <div class="col-md-3 margin-top-5per article-block", id="article-box">
           <%= link_to article, class:"txtcolorw" do %>
           <% if article.image.attached? %>
-            <%= image_tag article.image, class: "article-img" %>
+            <%= image_tag article.image, class: "article-img margin-top-5per" %>
           <%else%>
-            <%= image_tag 'noimage.jpg', class: 'article-img' %>
+            <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
           <%end%>
           <div>
             <p class="title"><%= article.title %></p>
