@@ -31,15 +31,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     authorization
   end
-  
-   def google_oauth2
+
+  def google_oauth2
     authorization
-   end
-  
-   private
-  
+  end
+
+  private
+
   def authorization
-    sns_info = User.from_omniauth(request.env["omniauth.auth"])
+    sns_info = User.from_omniauth(request.env['omniauth.auth'])
     @user = sns_info[:user]
 
     if @user.persisted?
@@ -49,5 +49,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       render template: 'devise/registrations/new'
     end
   end
-
 end

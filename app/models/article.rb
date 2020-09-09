@@ -6,8 +6,8 @@ class Article < ApplicationRecord
   belongs_to :user
 
   def self.search(search)
-    if search
-      search = Article.where('title LIKE(?)',"%#{search}%")
+    if search != ''
+      Article.where('title LIKE(?)', "%#{search}%")
     else
       Article.all
     end
