@@ -3,9 +3,9 @@
       <h1 class="text-center txtcolorw">ブログの編集</h1>
         <div class="form-group relative", id="image-area">
           <% if @article.image.attached? %>
-            <%= image_tag @article.image, class: "article-img" %>
+            <%= image_tag @article.image, class: "show-img" %>
           <%else%>
-            <%= image_tag 'noimage.jpg', class: 'article-img' %>
+            <%= image_tag 'noimage.jpg', class: 'show-img' %>
             <i class="far fa-images"></i>
           <%end%>
         </div>
