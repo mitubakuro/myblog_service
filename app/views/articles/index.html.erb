@@ -1,22 +1,21 @@
 <div class="container margin-bottom-10">
   <div class="row">
-
     <% @articles.each do |article| %>
-        <div class="col-md-3 margin-top-5per article-block", id="article-box">
-          <%= link_to article, class:"txtcolorw" do %>
-          <% if article.image.attached? %>
-            <%= image_tag article.image, class: "article-img margin-top-5per" %>
-          <%else%>
-            <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
-          <%end%>
-          <div>
-            <p class="title"><%= article.title %></p>
-            <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-            <br>
-            投稿者：<%= article.user.nickname %>
-          </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 margin-top-5per article-block", id="article-box">
+        <%= link_to article, class:"txtcolorw" do %>
+        <% if article.image.attached? %>
+          <%= image_tag article.image, class: "article-img margin-top-5per" %>
+        <%else%>
+          <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
+        <%end%>
+        <div>
+          <p class="title"><%= article.title %></p>
+          <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+          <br>
+          投稿者：<%= article.user.nickname %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
     <% end %>
 
   </div>

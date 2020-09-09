@@ -2,9 +2,9 @@
   <div class="col-md-12 margin-top-5per padding-top-10 article-block">
     <div class="form-group relative">
       <% if @article.image.attached? %>
-        <%= image_tag @article.image, class: "article-img" %>
+        <%= image_tag @article.image, class: "show-img" %>
       <%else%>
-        <%= image_tag 'noimage.jpg', class: 'article-img' %>
+        <%= image_tag 'noimage.jpg', class: 'show-img' %>
       <%end%>
       
     </div>
