@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       get "search"
     end
   end
+
+  get "/top", to: "articles#top"
+
   root "articles#index"
 
 end

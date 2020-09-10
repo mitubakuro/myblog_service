@@ -1,4 +1,5 @@
 <div class="container margin-bottom-10">
+<% if user_signed_in?%>
   <div class="row">
     <% @articles.each do |article| %>
       <div class="col-xs-12 col-sm-6 col-md-3 margin-top-5per article-block", id="article-box">
@@ -23,3 +24,13 @@
     <%= link_to "新規作成",new_article_path, class:"margin-top-5per btn btn-primary" %>
   </div>
 </div>
+<%else%>
+  <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
+<%end%>
+<footer>
+  <div class="container">
+    <div class="row">
+      <a href="/top">TOP画面へ</a>
+    </div>
+  </div>
+</footer>
