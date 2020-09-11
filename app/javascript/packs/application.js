@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("./upload_image")
+require("./bg_particle")
 
 
 
