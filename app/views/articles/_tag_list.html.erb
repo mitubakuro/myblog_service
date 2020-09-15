@@ -1,0 +1,5 @@
+<% tag_list.each do |tag| %>
+  <span>
+   <%= link_to tag, articles_path(tag_name: tag), class:"badge badge-info mr-1 p-1"%>
+  </span>
+<%end%>

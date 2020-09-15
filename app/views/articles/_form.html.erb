@@ -11,5 +11,10 @@
     <%= f.label :body, '本文', class:"txtcolorw" %>
     <%=f.rich_text_area :body, rows:7, class:'form-control' %>
   </div>
+    <div class="form-group">
+    <%= f.label :tag_list, 'タグ', class:"txtcolorw" %>
+    <%=f.text_field :tag_list, value: @article.tag_list.join(','), class:'form-control' %>
+    <p>「,」で区切って複数のタグを登録できます</p>
+  </div>
   <%=f.submit class: 'btn btn-success' %>
 <% end %>

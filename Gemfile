@@ -80,3 +80,6 @@ gem 'pry-rails'
 gem 'rails-i18n'
 
 gem "aws-sdk-s3", require: false
+
+gem 'acts-as-taggable-on', '~> 6.0'
+
