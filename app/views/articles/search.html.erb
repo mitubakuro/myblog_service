@@ -1,9 +1,10 @@
 <div class="container margin-bottom-10">
+  <h3 class="txtcolorw">検索一覧</h3>
   <div class="row">
     <% @articles.each do |article| %>
       <div class="col-md-3 margin-top-5per article-block">
         <%= link_to article, class:"txtcolorw" do %>
-        <%= image_tag 'neko_image.jpg', class: 'img-fluid padding-top-10' %>
+        <%= image_tag article.image, class: 'img-fluid padding-top-10' %>
         <div>
           <p class="title"><%= article.title %></p>
           <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
