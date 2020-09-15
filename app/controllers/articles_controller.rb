@@ -7,6 +7,9 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.order(created_at: :desc)
+    if params[:tag_name]
+      @articles = Article.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show
@@ -58,6 +61,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body, :image).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :body, :image, :tag_list).merge(user_id: current_user.id)
   end
 end

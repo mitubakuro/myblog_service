@@ -15,10 +15,10 @@
           <br>
           投稿者：<%= article.user.nickname %>
         </div>
+        <%= render 'tag_list', tag_list: article.tag_list%>
         <% end %>
       </div>
     <% end %>
-
   </div>
   <div class="row">
     <%= link_to "新規作成",new_article_path, class:"margin-top-5per btn btn-primary" %>
@@ -27,6 +27,7 @@
 <%else%>
   <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
 <%end%>
+
 <footer>
   <div class="container">
     <div class="row">
