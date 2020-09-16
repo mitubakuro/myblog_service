@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :top]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
-  before_action :stop_direct_url, only:[:show, :edit, :update, :destroy]
+  before_action :stop_direct_url, only:[:edit, :update, :destroy]
 
   def top
   end
@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
   end
 
   def stop_direct_url
-    redirect_to root_path if current_user.id == @article.user_id && request.referrer.nil?
+    redirect_to root_path unless current_user.id == @article.user_id && request.referrer != nil
   end
 
 end
