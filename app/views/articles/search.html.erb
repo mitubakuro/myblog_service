@@ -2,7 +2,7 @@
   <h3 class="txtcolorw">検索一覧</h3>
   <div class="row">
     <% @articles.each do |article| %>
-      <div class="col-md-3 margin-top-5per article-block">
+      <div class="col-xs-12 col-sm-6 col-md-3 article-block">
         <%= link_to article, class:"txtcolorw" do %>
         <%= image_tag article.image, class: 'img-fluid padding-top-10' %>
         <div>

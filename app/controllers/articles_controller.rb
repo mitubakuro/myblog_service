@@ -1,19 +1,19 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :top]
+  before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :stop_direct_url, only:[:show, :edit, :update, :destroy]
 
   def top
   end
 
   def index
-    @articles = Article.order(created_at: :desc)
+    @articles = Article.all.order(created_at: :desc)
     if params[:tag_name]
       @articles = Article.tagged_with("#{params[:tag_name]}")
     end
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def edit
@@ -63,4 +63,9 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :body, :image, :tag_list).merge(user_id: current_user.id)
   end
+
+  def stop_direct_url
+    redirect_to root_path if current_user.id == @article.user_id && request.referrer.nil?
+  end
+
 end

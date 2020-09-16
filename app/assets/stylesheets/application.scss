@@ -21,7 +21,8 @@
  @import 'font-awesome';
  
 body{
-  background: #191919;
+  background-image: image-url("carbon06-1.jpg");
+  background-size: cover;
 }
 
 .alert{
@@ -30,11 +31,11 @@ body{
 }
 
 .background {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  // position: absolute;
+  // display: block;
+  // top: 0;
+  // left: 0;
+  // z-index: 0;
 }
 
 a:link, a:visited, a:hover, a:active {

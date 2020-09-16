@@ -1,16 +1,16 @@
 <div class="container margin-bottom-10">
 <% if user_signed_in?%>
-  <div class="row">
+  <div class="row bigbox">
     <% @articles.each do |article| %>
-      <div class="col-xs-12 col-sm-6 col-md-3 article-block", id="article-box">
-        <%= link_to article, class:"txtcolorw " do %>
+      <div class="col-xs-12 col-sm-6 col-md-3", id="article-box">
+        <%= link_to article, class:"txtcolorw imgBx" do %>
         <% if article.image.attached? %>
           <%= image_tag article.image, class: "article-img margin-top-5per" %>
         <%else%>
           <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
         <%end%>
-        <div>
-          <div class="title"><%= article.title %></div>
+        <div class="content">
+          <div class="title moji"><%= article.title %></div>
           <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
           <br>
           投稿者：<%= article.user.nickname %>
