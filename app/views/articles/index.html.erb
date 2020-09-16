@@ -10,10 +10,10 @@
           <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
         <%end%>
         <div class="content">
-          <div class="title moji"><%= article.title %></div>
-          <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-          <br>
-          投稿者：<%= article.user.nickname %>
+          <div class="title"><%= article.title %></div>
+          <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+          &nbsp;
+          by <%= article.user.nickname %>
         </div>
         <%= render 'tag_list', tag_list: article.tag_list%>
         <% end %>
