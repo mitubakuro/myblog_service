@@ -27,6 +27,10 @@
   border:1px solid white;
 }
 
+// #article-box:hover{
+//   border: 1px solid chartreuse;
+// }
+
 .article-img{
   width:100%;
   height:150px;
@@ -52,11 +56,6 @@
   text-decoration: none;
 }
 
-#article-box:hover{
-  border: 1px solid chartreuse;
-}
-
-
 .relative{
   position: relative;
   i{
@@ -64,7 +63,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: darkcyan;
+    color:lightgreen;
     font-size: 100px;
   }
 }
@@ -85,4 +84,17 @@ footer p {
 footer {
   padding-top: 30px;
   padding-bottom: 20px;
+}
+
+// indexの記事画像にアニメーションを実装
+.container .bigbox .imgBx
+{
+	clip-path: circle(400px at center 17px);
+	transition: 0.5s;
+	transition-delay: 0.1s;
+}
+.container .bigbox .imgBx:hover
+{
+	clip-path: circle(70px at center 17px);
+	transition-delay: 0s;
 }

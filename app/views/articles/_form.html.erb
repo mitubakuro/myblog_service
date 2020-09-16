@@ -14,7 +14,7 @@
     <div class="form-group">
     <%= f.label :tag_list, 'タグ', class:"txtcolorw" %>
     <%=f.text_field :tag_list, value: @article.tag_list.join(','), class:'form-control' %>
-    <p>「,」で区切って複数のタグを登録できます</p>
+    <p class="txtcolorw">「,」で区切って複数のタグを登録できます</p>
   </div>
   <%=f.submit class: 'btn btn-success' %>
 <% end %>
