@@ -83,3 +83,4 @@ gem "aws-sdk-s3", require: false
 
 gem 'acts-as-taggable-on', '~> 6.0'
 
+gem 'kaminari'

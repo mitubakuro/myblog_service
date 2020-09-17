@@ -86,6 +86,15 @@ footer {
   padding-bottom: 20px;
 }
 
+// ページネーションのデザイン
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  color: black;
+}
+
 // indexの記事画像にアニメーションを実装
 .container .bigbox .imgBx
 {

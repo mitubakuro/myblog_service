@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(4)
     if params[:tag_name]
       @articles = Article.tagged_with("#{params[:tag_name]}").order(created_at: :desc)
     end
