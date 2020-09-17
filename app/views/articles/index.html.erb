@@ -20,6 +20,7 @@
       </div>
     <% end %>
   </div>
+
   <div class="row">
     <%= link_to "新規作成",new_article_path, class:"margin-top-5per btn btn-primary" %>
   </div>
@@ -28,10 +29,6 @@
   <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
 <%end%>
 
-<footer>
-  <div class="container">
-    <div class="row">
-      <a href="/top" style="text-decoration:none; color:white;">TOP画面へ</a>
-    </div>
-  </div>
-</footer>
+<%= paginate @articles %>
+
+
