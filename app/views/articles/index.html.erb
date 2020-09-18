@@ -3,7 +3,7 @@
   <div class="row bigbox">
     <% @articles.each do |article| %>
       <div class="col-xs-12 col-sm-6 col-md-3", id="article-box">
-        <%= link_to article, class:"txtcolorw imgBx" do %>
+        <%= link_to article, class:"txtcolor imgBx" do %>
         <% if article.image.attached? %>
           <%= image_tag article.image, class: "article-img margin-top-5per" %>
         <%else%>
@@ -29,6 +29,6 @@
   <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
 <%end%>
 
-<%= paginate @articles %>
+<%= paginate @articles if user_signed_in? %>
 
 

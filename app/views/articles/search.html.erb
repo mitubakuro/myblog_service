@@ -1,16 +1,19 @@
 <div class="container margin-bottom-10">
   <h3 class="txtcolorw">検索一覧</h3>
-  <div class="row">
+  <div class="row bigbox">
     <% @articles.each do |article| %>
-      <div class="col-xs-12 col-sm-6 col-md-3 article-block">
-        <%= link_to article, class:"txtcolorw" do %>
-        <%= image_tag article.image, class: 'img-fluid padding-top-10' %>
-        <div>
-          <p class="title"><%= article.title %></p>
-          <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-        </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= link_to article, class:"txtcolorw imgBx" do %>
+        <% if article.image.attached? %>
+          <%= image_tag article.image, class: "article-img margin-top-5per" %>
+        <%else%>
+          <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
+        <%end%>
+        <div class="title"><%= article.title %></div>
+        <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
       </div>
       <% end %>
     <% end %>
   </div>
 </div>
+<%= paginate @articles %>

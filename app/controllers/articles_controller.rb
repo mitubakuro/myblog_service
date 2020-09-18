@@ -7,9 +7,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(4)
+    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(8)
     if params[:tag_name]
+      flash.now[:notice] = "##{params[:tag_name]}"+"の記事一覧"
       @articles = Article.tagged_with("#{params[:tag_name]}").order(created_at: :desc)
+      @articles = @articles.page(params[:page])
     end
   end
 
@@ -52,6 +54,7 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = Article.search(params[:keyword])
+    @articles = @articles.page(params[:page])
   end
 
   private
