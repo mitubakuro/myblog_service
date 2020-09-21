@@ -15,13 +15,6 @@ a {
   clear: left;
 }
 
-.container {
-  max-width: 1170px;
-  width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
 .top-wrapper {
   padding: 180px 0 100px 0;
   background-image: url(office-1209640_1920.jpg);
@@ -231,7 +224,7 @@ footer {
 }
 
 // スマホ向けレイアウト
-@media all and (max-width: 670px) {
+@media all and (max-width: 770px) {
   .lesson {
     width: 100%;
   }
