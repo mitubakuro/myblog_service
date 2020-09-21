@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   get "/top", to: "articles#top"
 
-  root "articles#top"
+  root "articles#index"
 
 end

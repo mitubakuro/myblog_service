@@ -27,6 +27,7 @@
 </div>
 <%else%>
   <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
+  <%= link_to 'トップ画面へ', top_path, class:"btn btn-secondary"%>
 <%end%>
 
 <%= paginate @articles if user_signed_in? %>
