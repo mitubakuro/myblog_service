@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   has_rich_text :body
   belongs_to :user
   acts_as_taggable
+  enum status: {released: 0, unreleased: 1}
 
   validates :title, presence: true
   validates :body, presence: true

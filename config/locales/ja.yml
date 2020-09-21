@@ -14,3 +14,8 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+  enums:              #enum型に対する日本語定義であることを明示するために記述
+    article:           #モデル名を指定
+      status:           #カラム名を指定
+        released: "共有中"     #Enumの名前定義①
+        unreleased: "非公開"   #Enumの名前定義②

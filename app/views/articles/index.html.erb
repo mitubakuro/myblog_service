@@ -4,31 +4,32 @@
     <% @articles.each do |article| %>
       <div class="col-xs-12 col-sm-6 col-md-3", id="article-box">
         <%= link_to article, class:"txtcolor imgBx" do %>
-        <% if article.image.attached? %>
-          <%= image_tag article.image, class: "article-img margin-top-5per" %>
-        <%else%>
-          <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
-        <%end%>
-        <div class="content">
-          <div class="title"><%= article.title %></div>
-          <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
-          &nbsp;
-          by <%= article.user.nickname %>
-        </div>
-        <%= render 'tag_list', tag_list: article.tag_list%>
-        <% end %>
+          <% if article.image.attached? %>
+            <%= image_tag article.image, class: "article-img margin-top-5per" %>
+          <%else%>
+            <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
+          <%end%>
+          <div class="content">
+            <div class="title"><%= article.title %></div>
+            <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+            <br>
+            by <%= article.user.nickname %>
+            <%= article.status_i18n %>
+          </div>
+          <%= render 'tag_list', tag_list: article.tag_list%>
+        <% end %> <%# link_toのend%>
       </div>
-    <% end %>
+    <% end %><%# eachのend %>
   </div>
 
   <div class="row">
     <%= link_to "新規作成",new_article_path, class:"margin-top-5per btn btn-primary" %>
   </div>
 </div>
-<%else%>
+<% else %> <%# if user_signed_inのelse %>
   <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
   <%= link_to 'トップ画面へ', top_path, class:"btn btn-secondary"%>
-<%end%>
+<% end %> <%# if user_signed_inのend %>
 
 <%= paginate @articles if user_signed_in? %>
 
