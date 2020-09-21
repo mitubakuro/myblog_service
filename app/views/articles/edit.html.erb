@@ -12,5 +12,11 @@
       <div class="padding-bottom-15">
         <%= render 'form', article: @article%>
       </div>
+      現在の共有設定：<%= @article.status_i18n %>
+      <% if @article.released? %>
+        <%= link_to '投稿を非公開にする', unrelease_article_path, method: :patch, class:"btn btn-dark" %>
+      <% else %>
+        <%= link_to '投稿を共有する', release_article_path, method: :patch, class:"btn btn-info" %>
+      <% end %>
     </div>
 </div>
