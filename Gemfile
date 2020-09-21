@@ -78,7 +78,6 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 
 gem 'pry-rails'
-
 gem 'rails-i18n'
 
 gem "aws-sdk-s3", require: false
@@ -86,3 +85,5 @@ gem "aws-sdk-s3", require: false
 gem 'acts-as-taggable-on', '~> 6.0'
 
 gem 'kaminari'
+
+gem 'enum_help' 

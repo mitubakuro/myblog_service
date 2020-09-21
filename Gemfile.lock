@@ -107,6 +107,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.1)
@@ -345,6 +347,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  enum_help
   font-awesome-sass
   image_processing (~> 1.2)
   jbuilder (~> 2.7)

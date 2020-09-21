@@ -9,8 +9,12 @@
         <%else%>
           <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
         <%end%>
-        <div class="title"><%= article.title %></div>
-        <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+        <div class="content">
+          <div class="title"><%= article.title %></div>
+          <%= article.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+          by <%= article.user.nickname %>
+          <%= article.status_i18n %>
+        </div>
       </div>
       <% end %>
     <% end %>

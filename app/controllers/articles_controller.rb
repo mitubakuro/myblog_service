@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :top]
-  before_action :find_article, only: [:show, :edit, :update, :destroy]
-  before_action :stop_direct_url, only:[:edit, :update, :destroy]
+  before_action :find_article, only: [:show, :edit, :update, :destroy, :release, :unrelease]
+  before_action :stop_direct_url, only:[:show, :edit, :update, :destroy]
 
   def top
   end
@@ -57,6 +57,16 @@ class ArticlesController < ApplicationController
     @articles = @articles.page(params[:page])
   end
 
+  def release
+    @article.released! unless @article.released?
+    redirect_to edit_article_path(@article), notice: 'この投稿を公開しました'
+  end
+
+  def unrelease
+    @article.unreleased! unless @article.unreleased?
+    redirect_to edit_article_path(@article), notice: 'この投稿を非公開にしました'
+  end
+
   private
 
   def find_article
@@ -68,7 +78,7 @@ class ArticlesController < ApplicationController
   end
 
   def stop_direct_url
-    redirect_to root_path unless current_user.id == @article.user_id && request.referrer != nil
+    redirect_to root_path, notice: '直リンクは禁止です' unless current_user.id == @article.user_id || request.referrer != nil
   end
 
 end

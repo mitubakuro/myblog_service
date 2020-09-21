@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     collection do
       get "search"
     end
+    member do
+      patch "release", to: "articles#release"
+      patch "unrelease", to: "articles#unrelease"
+    end
   end
 
   get "/top", to: "articles#top"
