@@ -21,7 +21,7 @@
         <%= link_to "削除する", article_path, method: :delete, data: {confirm: "削除しますか？"} ,class:"btn btn-danger", style:"margin-bottom:10px; margin-right:10px;" %>
       <%end%>
     <% elsif @article.unreleased? && current_user.id != @article.user_id %>
-      <h1>非公開記事です</h1>
+      <h1>非公開な投稿です</h1>
     <% elsif @article.unreleased? && current_user.id == @article.user_id%>
       <div class="padding-bottom-15 txtcolorw", style="padding: 10px;">
         <%= @article.body %>
@@ -31,5 +31,44 @@
         <%= link_to "編集する", edit_article_path, class:"btn btn-primary", style:"margin-bottom:10px; margin-right:10px;" %>
         <%= link_to "削除する", article_path, method: :delete, data: {confirm: "削除しますか？"} ,class:"btn btn-danger", style:"margin-bottom:10px; margin-right:10px;" %>
     <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col padding-top-10 ">
+      <% if current_user %>
+        <div class="form-group">
+          <%= form_with(model: [@article, @comment], local: true) do |form| %>
+            <%= form.text_area :text, placeholder: "コメントする", rows: "2", class:"form-control" %>
+            <%= form.submit "送信", class:"btn btn-info"%>
+          <% end %>
+        </div>
+      <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+
+    <div class="comments margin-bottom-10">
+      <div class="comments-wrapper">
+        <h4>＜コメント一覧＞</h4>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <p>
+              <strong style="color:blue;"><%= comment.user.nickname %>：</strong>
+              <%= comment.text %>
+              <br>
+              <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
+              <%= link_to article_comment_path(comment.article.id, comment.id), method: :delete do%>
+                <i class="fas fa-trash-alt icon-delete"></i>
+              <%end%>
+            </p>
+          <% end %>
+        <% end %>
+        <% if @comments == [] %>
+          <p>まだコメントはありません！</p>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>

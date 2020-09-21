@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       patch "release", to: "articles#release"
       patch "unrelease", to: "articles#unrelease"
     end
+    resources :comments, only:[:create, :destroy]
   end
 
   get "/top", to: "articles#top"

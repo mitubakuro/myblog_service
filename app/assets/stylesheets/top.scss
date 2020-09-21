@@ -17,9 +17,9 @@ a {
 
 .top-wrapper {
   padding: 180px 0 100px 0;
-  background-image: image-url("office-1209640_1920.jpg");
+  background-image: image-url("pc-bg.jpg");
   background-size: cover;
-  color: darkblue;
+  color: white;
   text-align: center;
 }
 
@@ -116,12 +116,11 @@ header {
   display:none;
 }
 
-
 .lesson-wrapper {
   padding-bottom: 80px;
   padding-left: 5%;
   padding-right: 5%;
-  background-color: #f7f7f7;
+  background-color: oldlace;
   text-align: center;
 }
 
@@ -190,17 +189,6 @@ header {
 footer img {
   width: 125px;
 }
-
-footer p {
-  color: #b3aeb5;
-  font-size: 12px;
-}
-
-footer {
-  padding-top: 30px;
-  padding-bottom: 20px;
-}
-
 
 // レスポンシブデザインの記述
 // タブレット向けレイアウト
