@@ -58,9 +58,11 @@
               <%= comment.text %>
               <br>
               <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
-              <%= link_to article_comment_path(comment.article.id, comment.id), method: :delete, data: {confirm: "削除しますか？"} do%>
-                <i class="fas fa-trash-alt icon-delete"></i>
-              <%end%>
+              <% if comment.user_id == current_user.id %>
+                <%= link_to article_comment_path(comment.article.id, comment.id), method: :delete, data: {confirm: "削除しますか？"} do%>
+                  <i class="fas fa-trash-alt icon-delete"></i>
+                <% end %>
+              <% end %>
             </p>
           <% end %>
         <% end %>
