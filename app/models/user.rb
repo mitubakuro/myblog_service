@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :sns_credentials
   has_many :comments, dependent: :destroy
+  has_many :likes
 
   with_options presence: true do
     validates :nickname
@@ -30,4 +31,9 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
+
+  def liked_by?(article_id)
+    likes.where(article_id: article_id).exists?
+  end
+
 end

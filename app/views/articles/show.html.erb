@@ -7,16 +7,19 @@
         <%= image_tag 'noimage.jpg', class: 'show-img' %>
       <%end%>
     </div>
-    <h3 class="txtcolorw"><%= @article.title %></h3>
-
-    <p class="txtcolorw">投稿者：<%= @article.user.nickname %> &nbsp; 現在の共有設定：<%= @article.status_i18n %></p>
-    
+    <h3><%= @article.title %></h3>
+    <p class="infomation">
+      投稿者：<%= @article.user.nickname %> 
+      &nbsp; 現在の共有設定：<%= @article.status_i18n %>
+      &nbsp; <span id="likes_buttons_<%= @article.id %>"><%= render "like", article: @article%></span>
+    </p>
     <% if @article.released? %>
-      <div class="padding-bottom-15 txtcolorw", style="padding: 10px;">
+      <div class="padding-bottom-15", style="padding: 10px;">
         <%= @article.body %>
         タグ：<%= render 'tag_list', tag_list: @article.tag_list%>
         <p class="text-right"><%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
       </div>
+
       <%if @article.user_id == current_user.id %>
         <%= link_to "編集する", edit_article_path, class:"btn btn-primary", style:"margin-bottom:10px; margin-right:10px;" %>
         <%= link_to "削除する", article_path, method: :delete, data: {confirm: "削除しますか？"} ,class:"btn btn-danger", style:"margin-bottom:10px; margin-right:10px;" %>
@@ -24,7 +27,7 @@
     <% elsif @article.unreleased? && current_user.id != @article.user_id %>
       <h5>非公開な投稿です！</h5>
     <% elsif @article.unreleased? && current_user.id == @article.user_id%>
-      <div class="padding-bottom-15 txtcolorw", style="padding: 10px;">
+      <div class="padding-bottom-15", style="padding: 10px;">
         <%= @article.body %>
         タグ：<%= render 'tag_list', tag_list: @article.tag_list%>
         <p class="text-right"><%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
@@ -32,6 +35,7 @@
         <%= link_to "編集する", edit_article_path, class:"btn btn-primary", style:"margin-bottom:10px; margin-right:10px;" %>
         <%= link_to "削除する", article_path, method: :delete, data: {confirm: "削除しますか？"} ,class:"btn btn-danger", style:"margin-bottom:10px; margin-right:10px;" %>
     <% end %>
+
   </div>
 </div>
 
