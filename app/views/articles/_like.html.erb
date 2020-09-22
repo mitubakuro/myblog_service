@@ -1,0 +1,11 @@
+<% if current_user.liked_by?(article.id) %>
+  <%= link_to destroy_like_path(article.id), method: :DELETE, remote: true do %>
+    <i class="fas fa-heart" style="font-size:20px; color:#FF66CC;"></i>
+    <%= article.likes.all.length%>
+  <%end%>
+<%else%>
+  <%= link_to create_like_path(article.id), method: :POST, remote: true do %>
+    <i class="far fa-heart" style="font-size:20px; color:#FF66CC;"></i>
+    <%= article.likes.all.length%>
+  <%end%>
+<%end%>
