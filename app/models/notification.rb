@@ -1,4 +1,6 @@
 class Notification < ApplicationRecord
+  default_scope -> { order(created_at: :desc) }
+
   belongs_to :article, optional: true
   belongs_to :comment, optional: true
 
