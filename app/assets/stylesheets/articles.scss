@@ -133,6 +133,11 @@ footer {
   object-fit: cover;
 }
 
+.cap-text{
+  width: 40%;
+  margin: 0 auto;
+}
+
 // ページネーションのデザイン
 .pagination {
   justify-content: center;
@@ -204,5 +209,7 @@ footer {
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 8px;
-  width: 100%;
+  width: 50%;
+  text-decoration: none;
+  border-radius: 10px;
 }
