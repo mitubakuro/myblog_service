@@ -2,7 +2,7 @@
   <h3 class="txtcolorw">検索一覧</h3>
   <div class="row bigbox">
     <% @articles.each do |article| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="col-xs-12 col-sm-6 col-md-3" id="article-box">
         <%if article.status_i18n == "非公開" %>
           <div class="secret">
             <i class="fas fa-key">非公開</i>
