@@ -4,7 +4,7 @@
     <% @articles_ranking.each.with_index(1) do |article, i|%>
       <div class="col-xs-12 col-sm-6 col-md-3", id="article-box">
         <%if article.status_i18n == "非公開" %>
-          <div class="secret">
+          <div class="secret margin-top-5per">
             <i class="fas fa-key">非公開</i>
           </div>
         <%end%>
