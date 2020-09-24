@@ -2,7 +2,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.new(comment_params)
+    @article = @comment.article
     if @comment.save
+      @article.create_notification_comment!(current_user, @comment.id)
       redirect_to "/articles/#{@comment.article.id}", notice: 'コメントを投稿しました'
     else
       render "/articles/#{params[:article_id]}"
