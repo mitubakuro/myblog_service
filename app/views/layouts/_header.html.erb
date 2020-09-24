@@ -7,6 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+      <li class="nav-item active">
+        <a class="nav-link" style="color:red;" href="/users/sign_out", data-method="delete">ログアウト</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/">投稿一覧<span class="sr-only">(current)</span></a>
       </li>
@@ -33,9 +36,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/articles/new">新規投稿</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" style="color:red;" href="/users/sign_out", data-method="delete">ログアウト</a>
-      </li>
       <% else %>
       <li class="nav-item">
         <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
@@ -46,7 +46,6 @@
       <% end %>
     </ul>
     <% if user_signed_in? %>
-      <form class="form-inline">ログインユーザー：<%= current_user.nickname %>さん</form>
       <%if unchecked_notifications.any? %>
         <%= link_to notifications_path do%>
           <i class="far fa-bell n-bell"></i>
@@ -58,6 +57,7 @@
         <%end%>
       <%end%>
       &nbsp;
+      <form class="form-inline">ログインユーザー：<%= current_user.nickname %>さん</form>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="タイトル検索" aria-label="Search" name=keyword>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/articles/search">検索</button>
