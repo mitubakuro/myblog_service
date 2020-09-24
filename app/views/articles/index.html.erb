@@ -17,7 +17,9 @@
         <div class="content">
           <div class="title"><%= article.title %></div>
           <div>投稿者：<%= article.user.nickname %></div>
-          <p><%= article.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+          <span><%= article.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+          <i class="fas fa-heart" style="font-size:15px;"><%= article.likes.all.length%></i>
+          <i class="fas fa-comment" style="font-size:15px;"><%= article.comments.all.length%></i>
         </div>
         <%= render 'tag_list', tag_list: article.tag_list%>
       <% end %> <%# link_toのend%>
