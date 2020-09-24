@@ -1,0 +1,25 @@
+<div class="container margin-bottom-10">
+  <h3>いいね数ランキング</h3>
+  <div class="row bigbox form-bg padding-top-10 padding-bottom-15">
+    <% @articles_ranking.each.with_index(1) do |article, i|%>
+      <div class="col-xs-12 col-sm-6 col-md-3", id="article-box">
+        <h5><%=i%>位</h5>
+        <%= link_to article, class:"txtcolor imgBx" do %>
+          <% if article.image.attached? %>
+            <%= image_tag article.image, class: "article-img margin-top-5per" %>
+          <%else%>
+            <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
+          <%end%>
+          <div class="content">
+            <div class="title"><%= article.title %></div>
+            <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
+            <br>
+            by <%= article.user.nickname %>
+            <%= article.status_i18n %>
+          </div>
+          <%= render 'tag_list', tag_list: article.tag_list%>
+        <% end %> <%# link_toのend%>
+      </div>
+    <%end%>
+  </div>
+</div>

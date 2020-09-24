@@ -69,6 +69,12 @@ class ArticlesController < ApplicationController
     redirect_to edit_article_path(@article), notice: 'この投稿を非公開にしました'
   end
 
+  def ranking
+    article_like_count = Article.joins(:likes).group(:article_id).count
+    article_liked_ids = Hash[article_like_count.sort_by{ |_, v| -v }].keys
+    @articles_ranking= Article.where(id: article_liked_ids)
+  end
+
   private
 
   def find_article

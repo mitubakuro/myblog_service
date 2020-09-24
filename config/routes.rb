@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
 
   get "/top", to: "articles#top"
+  get "/ranking", to: "articles#ranking"
 
   root "articles#index"
 
