@@ -27,8 +27,15 @@
   </div>
 </div>
 <% else %> <%# if user_signed_inのelse %>
-  <%= link_to 'ログインしてください！', new_user_session_path, class:"btn btn-warning"%>
-  <%= link_to 'トップ画面へ', top_path, class:"btn btn-secondary"%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= link_to '新規登録する', new_user_registration_path, class:"btn btn-info"%>
+      <%= link_to 'ログインする', new_user_session_path, class:"btn btn-warning"%>
+      <%= link_to 'トップ画面へ', top_path, class:"btn btn-secondary"%>
+    </div>
+  </div>
+</div>
 <% end %> <%# if user_signed_inのend %>
 
 <%= paginate @articles if user_signed_in? %>
