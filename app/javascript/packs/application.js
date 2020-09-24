@@ -7,8 +7,9 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("./sound_input")
 require("./upload_image")
-require("./bg_particle")
+// require("./bg_particle")
 
 
 
