@@ -3,7 +3,7 @@
     <div class="carousel-item active">
       <img class="d-block pics-size" src="assets/back-to-school-913074_1920.jpg" alt="First slide">
       <div class="carousel-caption">
-        <h3 class="bg-success">ブログへようこそ！</h3>
+        <h3 class="bg-success" style="border-radius: 50px; opacity:0.7;">ブログへようこそ！</h3>
       </div>
     </div>
     <% @articles.shuffle.first(3).each do |pic|%>
@@ -11,14 +11,14 @@
       <% if pic.image.attached? %>
         <%= image_tag pic.image, class: "d-block pics-size", alt:"slide" %>
         <div class="carousel-caption">
-          <h3 class="text-dark"><%=pic.title%></h3>
-          <p class="text-dark">投稿者：<%=pic.user.nickname%></p>
+          <h3 class="bg-secondary" style="border-radius: 50px; opacity:0.7;"><%=pic.title%></h3>
+          <p class="bg-secondary" style="border-radius: 50px; opacity:0.7;">投稿者：<%=pic.user.nickname%></p>
         </div>
       <%else%>
         <%= image_tag 'noimage.jpg', class: 'd-block pics-size', alt:"slide" %>
         <div class="carousel-caption">
-          <h3 class="text-dark"><%=pic.title%></h3>
-          <p class="text-dark">投稿者：<%=pic.user.nickname%></p>
+          <h3 class="bg-secondary" style="border-radius: 50px; opacity:0.7;"><%=pic.title%></h3>
+          <p class="bg-secondary" style="border-radius: 50px; opacity:0.7;">投稿者：<%=pic.user.nickname%></p>
         </div>
       <%end%>
       </div>
