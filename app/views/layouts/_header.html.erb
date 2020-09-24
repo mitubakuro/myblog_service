@@ -8,13 +8,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <li class="nav-item active">
-        <a class="nav-link" style="color:red;" href="/users/sign_out", data-method="delete">ログアウト</a>
+        <a class="nav-link" style="color:red;" href="/users/sign_out", data-method="delete"><i class="fas fa-sign-out-alt"></i>ログアウト</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/">投稿一覧<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/ranking">ランキング</a>
+        <a class="nav-link" href="/ranking"><i class="fas fa-crown"></i>ランキング</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/top">トップ</a>
@@ -34,7 +34,7 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li> %>
       <li class="nav-item">
-        <a class="nav-link" href="/articles/new">新規投稿</a>
+        <a class="nav-link" href="/articles/new"><i class="far fa-paper-plane"></i>新規投稿</a>
       </li>
       <% else %>
       <li class="nav-item">
