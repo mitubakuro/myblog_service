@@ -1,0 +1,24 @@
+<% visitor = notification.visitor%>
+<% visited = notification.visited%>
+<div class="col-md-6 mx-auto form-bg">
+  <div class="form-inline padding-top-10">
+    <span>
+      <h4><%= visitor.nickname %>さんが</h4>
+    </span>
+    <% case notification.action %>
+      <% when 'like' then%>
+        <h4><%= link_to 'あなたの投稿', notification.article, style:"font-wight: bold;"%>にいいねしました</h4>
+      <% when 'comment' then%>
+        <% if notification.article.user_id == visited.id%>
+          <h4><%= link_to 'あなたの投稿', notification.article, style:"font-weight: bold;"%>にコメントしました</h4>
+        <%else%>
+          <h4><%= link_to "#{notification.article.user.nickname}さんの投稿", notification.article, style:"font-weight: bold" %>にコメントしました</h4>
+        <%end%>
+    <%end%>
+  </div>
+  <p class="text-muted mb-0">
+    <%= Comment.find_by(id: notification.comment_id)&.text %>
+  </p>
+  <div class=" small text-muted text-right"> <%= time_ago_in_words(notification.created_at).upcase %>前</div>
+  <hr>
+</div>

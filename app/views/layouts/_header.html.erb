@@ -8,10 +8,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">投稿一覧<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/top">Top</a>
+        <a class="nav-link" href="/top">トップ</a>
       </li>
       <%# <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,19 +37,28 @@
       <li class="nav-item">
         <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
       </li>
-        <%# &nbsp; %>
       <li class="nav-item">
         <%= link_to "アカウント作成", new_user_registration_path, class: "nav-link" %>
       </li>
       <% end %>
     </ul>
     <% if user_signed_in? %>
-    <form class="form-inline">ログインユーザー：<%= current_user.nickname %>さん</form>
-    &nbsp;
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="タイトル検索" aria-label="Search" name=keyword>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/articles/search">検索</button>
-    </form>
+      <form class="form-inline">ログインユーザー：<%= current_user.nickname %>さん</form>
+      <%if unchecked_notifications.any? %>
+        <%= link_to notifications_path do%>
+          <i class="far fa-bell n-bell"></i>
+          <i class="fas fa-circle n-circle"></i>
+        <%end%>
+      <%else%>
+        <%= link_to notifications_path do%>
+          <i class="far fa-bell n-bell"></i>
+        <%end%>
+      <%end%>
+      &nbsp;
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="タイトル検索" aria-label="Search" name=keyword>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/articles/search">検索</button>
+      </form>
     <% end %>
   </div>
 </nav>
