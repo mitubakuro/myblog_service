@@ -43,9 +43,17 @@
       <% end %>
     </ul>
     <% if user_signed_in? %>
-      <%= link_to "通知", notifications_path %>
-      &nbsp;
       <form class="form-inline">ログインユーザー：<%= current_user.nickname %>さん</form>
+      <%if unchecked_notifications.any? %>
+        <%= link_to notifications_path do%>
+          <i class="far fa-bell n-bell"></i>
+          <i class="fas fa-circle n-circle"></i>
+        <%end%>
+      <%else%>
+        <%= link_to notifications_path do%>
+          <i class="far fa-bell n-bell"></i>
+        <%end%>
+      <%end%>
       &nbsp;
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="タイトル検索" aria-label="Search" name=keyword>

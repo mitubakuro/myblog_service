@@ -12,7 +12,7 @@
         <% if notification.article.user_id == visited.id%>
           <h4><%= link_to 'あなたの投稿', notification.article, style:"font-weight: bold;"%>にコメントしました</h4>
         <%else%>
-          <h4><%= notification.article.user.nickname +'さんの投稿'%>にコメントしました</h4>
+          <h4><%= link_to "#{notification.article.user.nickname}さんの投稿", notification.article, style:"font-weight: bold" %>にコメントしました</h4>
         <%end%>
     <%end%>
   </div>

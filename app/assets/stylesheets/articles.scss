@@ -102,6 +102,17 @@ footer {
   border: 1px solid black;
 }
 
+.n-bell{
+  font-size: 30px;
+}
+
+.n-circle {
+  position: absolute;
+  transform: translate(-200%, -20%);
+  font-size: 15px;
+  color: #7FFF00;
+}
+
 // ページネーションのデザイン
 .pagination {
   justify-content: center;
