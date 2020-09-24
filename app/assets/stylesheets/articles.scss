@@ -27,9 +27,20 @@
   border:1px solid white;
 }
 
-// #article-box:hover{
-//   border: 1px solid chartreuse;
-// }
+#article-box{
+  position: relative;
+  z-index: 1;
+}
+
+.secret{
+  z-index: 2;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #BB0000;
+}
 
 .article-img{
   width:100%;

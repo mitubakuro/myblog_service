@@ -3,21 +3,24 @@
   <div class="row bigbox">
     <% @articles.each do |article| %>
       <div class="col-xs-12 col-sm-6 col-md-3", id="article-box">
-        <%= link_to article, class:"txtcolor imgBx" do %>
-          <% if article.image.attached? %>
-            <%= image_tag article.image, class: "article-img margin-top-5per" %>
-          <%else%>
-            <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
-          <%end%>
-          <div class="content">
-            <div class="title"><%= article.title %></div>
-            <%= article.created_at.strftime("%Y/%m/%d %H:%M") %>
-            <br>
-            by <%= article.user.nickname %>
-            <%= article.status_i18n %>
-          </div>
-          <%= render 'tag_list', tag_list: article.tag_list%>
-        <% end %> <%# link_toのend%>
+      <%if article.status_i18n == "非公開" %>
+        <div class="secret">
+          <i class="fas fa-key">非公開</i>
+        </div>
+      <%end%>
+      <%= link_to article, class:"txtcolor imgBx" do %>
+        <% if article.image.attached? %>
+          <%= image_tag article.image, class: "article-img margin-top-5per" %>
+        <%else%>
+          <%= image_tag 'noimage.jpg', class: 'article-img margin-top-5per' %>
+        <%end%>
+        <div class="content">
+          <div class="title"><%= article.title %></div>
+          <div>投稿者：<%= article.user.nickname %></div>
+          <p><%= article.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+        </div>
+        <%= render 'tag_list', tag_list: article.tag_list%>
+      <% end %> <%# link_toのend%>
       </div>
     <% end %><%# eachのend %>
   </div>
