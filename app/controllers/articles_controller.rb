@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :top]
+  before_action :authenticate_user!, except: [:index, :top]
   before_action :find_article, only: [:show, :edit, :update, :destroy, :release, :unrelease]
   before_action :stop_direct_url, only:[:show, :edit, :update, :destroy]
 

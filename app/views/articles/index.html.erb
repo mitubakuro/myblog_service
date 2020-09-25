@@ -8,18 +8,22 @@
     </div>
     <% @articles.shuffle.first(3).each do |pic|%>
       <div class="carousel-item">
-      <% if pic.image.attached? %>
-        <%= image_tag pic.image, class: "d-block pics-size", alt:"slide" %>
-        <div class="carousel-caption cap-text">
-          <h3 class="bg-secondary" style="border-radius: 50px; opacity:0.7;"><%=pic.title%></h3>
-          <p class="bg-secondary" style="border-radius: 50px; opacity:0.7;">投稿者：<%=pic.user.nickname%></p>
-        </div>
+        <% if pic.image.attached? %>
+        <%= link_to pic do %>
+          <%= image_tag pic.image, class: "d-block pics-size", alt:"slide" %>
+          <div class="carousel-caption cap-text">
+            <h3 class="bg-secondary" style="border-radius: 50px; opacity:0.7;"><%=pic.title%></h3>
+            <p class="bg-secondary" style="border-radius: 50px; opacity:0.7;">投稿者：<%=pic.user.nickname%></p>
+          </div>
+        <%end%>
       <%else%>
-        <%= image_tag 'noimage.jpg', class: 'd-block pics-size', alt:"slide" %>
-        <div class="carousel-caption cap-text">
-          <h3 class="bg-secondary" style="border-radius: 50px; opacity:0.7;"><%=pic.title%></h3>
-          <p class="bg-secondary" style="border-radius: 50px; opacity:0.7;">投稿者：<%=pic.user.nickname%></p>
-        </div>
+        <%= link_to pic do %>
+          <%= image_tag 'noimage.jpg', class: 'd-block pics-size', alt:"slide" %>
+          <div class="carousel-caption cap-text">
+            <h3 class="bg-secondary" style="border-radius: 50px; opacity:0.7;"><%=pic.title%></h3>
+            <p class="bg-secondary" style="border-radius: 50px; opacity:0.7;">投稿者：<%=pic.user.nickname%></p>
+          </div>
+        <%end%>
       <%end%>
       </div>
     <%end%>
@@ -71,7 +75,7 @@
 <% else %> <%# if user_signed_inのelse %>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="mx-auto margin-top-5per">
       <%= link_to '新規登録する', new_user_registration_path, class:"btn btn-info"%>
       <%= link_to 'ログインする', new_user_session_path, class:"btn btn-warning"%>
       <%= link_to 'トップ画面へ', top_path, class:"btn btn-secondary"%>
