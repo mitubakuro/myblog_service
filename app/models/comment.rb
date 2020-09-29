@@ -5,5 +5,4 @@ class Comment < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   validates :text, presence: true
-  
 end

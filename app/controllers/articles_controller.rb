@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :top]
   before_action :find_article, only: [:show, :edit, :update, :destroy, :release, :unrelease]
-  before_action :stop_direct_url, only:[:show, :edit, :update, :destroy, :release, :unrelease]
+  before_action :stop_direct_url, only: [:show, :edit, :update, :destroy, :release, :unrelease]
 
   def top
   end
@@ -9,8 +9,8 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.order(created_at: :desc).page(params[:page]).per(12)
     if params[:tag_name]
-      flash.now[:notice] = "##{params[:tag_name]}"+"の記事一覧"
-      @articles = Article.tagged_with("#{params[:tag_name]}").order(created_at: :desc)
+      flash.now[:notice] = "##{params[:tag_name]}" + 'の記事一覧'
+      @articles = Article.tagged_with(params[:tag_name].to_s).order(created_at: :desc)
       @articles = @articles.page(params[:page])
     end
   end
@@ -71,8 +71,8 @@ class ArticlesController < ApplicationController
 
   def ranking
     article_like_count = Article.joins(:likes).group(:article_id).count
-    article_liked_ids = Hash[article_like_count.sort_by{ |_, v| -v }].keys
-    @articles_ranking= Article.where(id: article_liked_ids)
+    article_liked_ids = Hash[article_like_count.sort_by { |_, v| -v }].keys
+    @articles_ranking = Article.where(id: article_liked_ids)
   end
 
   private
@@ -86,7 +86,6 @@ class ArticlesController < ApplicationController
   end
 
   def stop_direct_url
-    redirect_to root_path, notice: '直リンクは禁止です' unless current_user.id == @article.user_id || request.referrer != nil
+    redirect_to root_path, notice: '直リンクは禁止です' unless current_user.id == @article.user_id || !request.referrer.nil?
   end
-
 end

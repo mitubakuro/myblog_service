@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   has_rich_text :body
   belongs_to :user
   acts_as_taggable
-  enum status: {released: 0, unreleased: 1}
+  enum status: { released: 0, unreleased: 1 }
   has_many :comments, dependent: :destroy
   has_many :likes
   has_many :notifications, dependent: :destroy
@@ -23,7 +23,10 @@ class Article < ApplicationRecord
   # 通知機能のメソッド
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and article_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
+    temp = Notification.where(
+      ['visitor_id = ? and visited_id = ? and article_id = ? and action = ? ',
+       current_user.id, user_id, id, 'like']
+    )
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_user.active_notifications.new(
@@ -32,9 +35,7 @@ class Article < ApplicationRecord
         action: 'like'
       )
       # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
+      notification.checked = true if notification.visitor_id == notification.visited_id
       notification.save if notification.valid?
     end
   end
@@ -58,10 +59,7 @@ class Article < ApplicationRecord
       action: 'comment'
     )
     # 自分の投稿に対するコメントの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
-
 end
