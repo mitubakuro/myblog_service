@@ -1,6 +1,6 @@
 # ふんわりブログ
 気軽にアイデアや考えをアウトプットできるブログサイトです。<br>レスポンシブ対応しているので、スマホ等からも閲覧可能です。
-![portfolio_index](https://user-images.githubusercontent.com/67918972/94552838-87196000-0292-11eb-859e-5affd585709d.jpg)
+![portfolio_index](https://user-images.githubusercontent.com/67918972/94553575-ae246180-0293-11eb-8c12-7b0806de8b06.jpg)
 
 # URL
 http://3.113.47.133/<br>「ゲストでログイン」ボタンからメールアドレス等の入力不要でログインできます。
