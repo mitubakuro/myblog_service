@@ -1,3 +1,17 @@
+<script>
+  function clearText(){
+    const textForm1 = document.getElementById("form1");
+    const textForm2 = document.getElementById("form2");
+    const textForm3 = document.getElementById("form3");
+    const textForm4 = document.getElementById("form4");
+    textForm1.value='';
+    textForm2.value='';
+    textForm3.value='';
+    textForm4.value='';
+    alert("管理人へ送信されました");
+  }
+</script>
+
 <div class="container">
   <div class="row">
 
@@ -9,24 +23,24 @@
       <h3>本ブログへのお問い合わせ</h3>
       <div class="txtb">
         <label>フルネーム :</label>
-        <input type="text" name="" value="" placeholder="田中太郎">
+        <input type="text" name="" value="" placeholder="田中太郎" id="form1">
       </div>
 
       <div class="txtb">
         <label>メールアドレス :</label>
-        <input type="email" name="" value="" placeholder="tanaka@tarou.com">
+        <input type="email" name="" value="" placeholder="tanaka@tarou.com" id="form2">
       </div>
 
       <div class="txtb">
         <label>電話番号 :</label>
-        <input type="text" name="" value="" placeholder="080-1234-5678">
+        <input type="text" name="" value="" placeholder="080-1234-5678" id="form3">
       </div>
 
       <div class="txtb">
         <label>メッセージ :</label>
-        <textarea></textarea>
+        <textarea id="form4"></textarea>
       </div>
-      <a class="cnt-btn" href="#">送信</a>
+      <a class="cnt-btn" href="#" onClick="clearText()">送信</a>
     </div>
   </div>
 </div>
