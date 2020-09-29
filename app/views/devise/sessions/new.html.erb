@@ -6,6 +6,7 @@
   <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
     <i class="fab fa-google txtcolorw", id="ggleicon"></i>
   <%end%>
+  <%= link_to 'ゲストでログイン', articles_guest_sign_in_path, method: :post, class:"btn btn-light" %>
 </div>
 
 <%= form_with model: @user, url: new_user_session_path, method: :post, class:"box", local: true do |f| %>
