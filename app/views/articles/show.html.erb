@@ -16,7 +16,7 @@
     <% if @article.released? %>
       <div class="padding-bottom-15", style="padding: 10px;">
         <%= @article.body %>
-        タグ：<%= render 'tag_list', tag_list: @article.tag_list%>
+        <%= render 'tag_list', tag_list: @article.tag_list%>
         <p class="text-right"><%= @article.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
       </div>
 
