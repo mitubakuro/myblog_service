@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get "/top", to: "articles#top"
   get "/ranking", to: "articles#ranking"
+  
+  post '/articles/guest_sign_in', to: 'articles#new_guest'
 
   root "articles#index"
 

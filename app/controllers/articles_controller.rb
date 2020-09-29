@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :top]
+  before_action :authenticate_user!, except: [:index, :top, :new_guest]
   before_action :find_article, only: [:show, :edit, :update, :destroy, :release, :unrelease]
   before_action :stop_direct_url, only: [:show, :edit, :update, :destroy, :release, :unrelease]
 
@@ -73,6 +73,14 @@ class ArticlesController < ApplicationController
     article_like_count = Article.joins(:likes).group(:article_id).count
     article_liked_ids = Hash[article_like_count.sort_by { |_, v| -v }].keys
     @articles_ranking = Article.where(id: article_liked_ids)
+  end
+
+  def new_guest
+    user = User.find_or_create_by!(nickname: "ゲストユーザー", email: 'guest@example.com', firstname: "げすと", lastname: "ゆーざー", birthday: "2000-10-10") do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private
