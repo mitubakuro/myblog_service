@@ -60,7 +60,7 @@
           <% @comments.each do |comment| %>
             <p>
               <strong style="color:blue;"><%= comment.user.nickname %>：</strong>
-              <%= comment.text %>
+              <%= simple_format comment.text %>
               <br>
               <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
               <% if comment.user_id == current_user.id %>
