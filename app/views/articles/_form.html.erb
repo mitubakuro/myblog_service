@@ -10,7 +10,7 @@
   <div class="form-group">
     <%= f.label :body, '本文', class:"txtcolorw" %>
     <%=f.rich_text_area :body, rows:7, class:'form-control', id:"body" %>
-    <div id="sound_btn" style="cursor:pointer;" onClick="this.innerHTML='音声認識中！',this.style.color='red'">本文を音声認識で入力</div>
+    <div id="sound_btn" style="cursor:pointer;" onClick="this.innerHTML='音声認識中！',this.style.color='red'">本文を音声認識で入力（AWS環境は不可）</div>
   </div>
     <div class="form-group">
     <%= f.label :tag_list, 'タグ', class:"txtcolorw" %>
