@@ -9,7 +9,7 @@
 
 # URL
 AWS版：http://3.113.47.133/<br>
-Heroku版：https://eiji-blog-app.herokuapp.com/<br>「ゲストでログイン」ボタンからメールアドレス等の入力不要でログインできます。<br>※AWS版はHTTPS化やドメイン設定ができていないため、以下２点の機能が動きません。<br>
+Heroku版：https://eiji-blog-app.herokuapp.com/<br>「ゲストでログイン」ボタンからメールアドレス等の入力不要でログインできます。<br>※AWS版はHTTPS化やドメイン設定ができていないため、以下２点の機能が動きません。
 - SNS認証機能（Facebook、Google）
 - 音声認識機能
 
