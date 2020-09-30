@@ -7,7 +7,7 @@ app_path = File.expand_path('../../../', __FILE__)  # 「../」が一つ増え�
 worker_processes 1
 
 #アプリケーションの設置されているディレクトリを指定
-working_directory app_path
+# working_directory app_path
 working_directory "#{app_path}/current"  # 「current」を指定、Capistrano用
 
 
