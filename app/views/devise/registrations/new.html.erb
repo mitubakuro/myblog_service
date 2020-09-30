@@ -3,11 +3,12 @@
   <%= link_to 'ゲストでログイン', articles_guest_sign_in_path, method: :post, class:"btn btn-light margin-bottom-10" %>
   <br>
   <%= link_to user_facebook_omniauth_authorize_path, method: :post, style:"text-decoration: none" do %>
-    <i class="fab fa-facebook-square", id="fbicon", style="display: none;"></i>
+    <i class="fab fa-facebook-square", id="fbicon"></i>
   <%end%>
   <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post do %>
-    <i class="fab fa-google txtcolorw", id="ggleicon", style="display: none;"></i>
+    <i class="fab fa-google txtcolorw", id="ggleicon"></i>
   <%end%>
+  <p>※SNS認証はAWS環境の場合、ご利用いただけません</p>
 </div>
 
 <%= form_with model: @user, url: user_registration_path, method: :post, class: "box", local: true do |f| %>
