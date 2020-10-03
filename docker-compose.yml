@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.6.47 #既存アプリとあわせる。ターミナルに「mysqladmin version」で確認
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - "4306:3306"  #Sequel ProでDBを確認する為、4306としておく
+    volumes:
+      - mysql-data:/var/lib/mysql
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+volumes:
+  mysql-data:
