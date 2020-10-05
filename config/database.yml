@@ -14,10 +14,10 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  # password:
+  password:
   socket: /tmp/mysql.sock
-  password: password # docker-compose.ymlのMYSQL_ROOT_PASSWORD
-  host: db # docker-compose.ymlのservice名
+  # password: password # docker-compose.ymlのMYSQL_ROOT_PASSWORD
+  # host: db # docker-compose.ymlのservice名
 
 development:
   <<: *default
