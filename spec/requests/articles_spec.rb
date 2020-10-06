@@ -10,5 +10,15 @@ RSpec.describe "Articles", type: :request do
       get root_path
       expect(response.status).to eq 200
     end
+
+    it "indexアクションにリクエストするとレスポンスに投稿済み記事のタイトルが存在する" do 
+      get root_path
+      expect(response.body).to include @article.title
+    end
+
+    it "indexアクションにリクエストするとレスポンスにログインボタンが存在する" do 
+      get root_path
+      expect(response.body).to include "ログイン"
+    end
   end
 end
