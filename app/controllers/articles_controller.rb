@@ -70,9 +70,6 @@ class ArticlesController < ApplicationController
   end
 
   def ranking
-    # article_like_count = Article.joins(:likes).group(:article_id).count
-    # article_liked_ids = Hash[article_like_count.sort_by { |_, v| -v }].keys
-    # @articles_ranking = Article.where(id: article_liked_ids)
     @articles_ranking =Article.find(Like.group(:article_id).order('count(article_id) desc').limit(8).pluck(:article_id))
   end
 
